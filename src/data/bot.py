@@ -37,7 +37,7 @@ async def matches(ctx):
         colour = discord.Colour.red()
         )
 
-    await ctx.send(embed = main2)    
+    await ctx.send(embed = embed1)    
     user_input = await client.wait_for('message', check=msg_check())
 
     print(get_data(user_input))
