@@ -1,8 +1,12 @@
 # node.js
-/node_modules/
+src/node_modules/
+node_modules/
 
 # python file run cache
 /__pycache__/
 
 # selenium 
-/geckodriver.log/
+geckodriver.log/
+
+src/package-lock.json
+src/package.json
