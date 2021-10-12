@@ -1,11 +1,21 @@
-import requests
-from bs4 import BeautifulSoup
-import csv
+from selenium import webdriver
+from selenium.webdriver.support.ui import Select
 
-link = requests.get(f"https://www.iplt20.com/stats/2021/most-runs")
-soup = BeautifulSoup(link, 'lxml')
+PATH = "C:\Program Files (x86)\geckodriver.exe"
 
+driver = webdriver.Firefox(executable_path=PATH)
 
-for runs in soup.find_all("Runs"):
-    runs_information = link.find('div', class_='js-table')
+driver.get("https://www.iplt20.com/stats/2021/most-runs")
+print(driver.title)
+
+def get_run_data(date):
+    try:
+        choose_data = Select(driver.find_element_by_class_name("drop-down__clickzone.js-dropdown-trigger"))
+        choose_data.select_by_visible_text(str(date))
+        elem = driver.find_elements_by_class_name("top-players__r  is-active")
+        print(elem.text)
+    finally:
+        driver.close()
+
+print(get_run_data(2021))
 

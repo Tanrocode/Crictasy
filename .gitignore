@@ -1,2 +1,8 @@
+# node.js
 /node_modules/
+
+# python file run cache
 /__pycache__/
+
+# selenium 
+/geckodriver.log/
