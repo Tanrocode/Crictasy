@@ -477,3 +477,12 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 JavaScript error: resource://services-settings/Attachments.jsm, line 391: TypeError: / is not a valid URL.
 1634006619121	Marionette	INFO	Stopped listening on port 57136
 JavaScript error: resource:///modules/Interactions.jsm, line 201: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
+1634006994973	geckodriver	INFO	Listening on 127.0.0.1:60760
+1634006998040	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\herot\\AppData\\Local\\Temp\\rust_mozprofile43ahRz"
+1634006999203	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\herot\\AppData\\Local\\Temp\\rust_mozprofile43ahRz\\search.json.mozlz4", (void 0)))
+1634007005494	Marionette	INFO	Listening on port 60768
+1634007005617	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://services-settings/Attachments.jsm, line 391: TypeError: / is not a valid URL.
+1634007010298	Marionette	INFO	Stopped listening on port 60768
+JavaScript error: resource:///modules/Interactions.jsm, line 201: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
