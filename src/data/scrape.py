@@ -5,14 +5,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import date
 
+if platform == "darwin":
+  PATH = "/Users/rishit/Downloads/chromedriver"
+  driver = webdriver.Chrome(executable_path=PATH)
 
-PATH = "/Users/rishit/Downloads/chromedriver"
-
-driver = webdriver.Chrome(executable_path=PATH)
-
-
-
-
+if platform == "win32":
+  PATH = "C:\Program Files (x86)\geckodriver.exe"
+  driver = webdriver.Firefox(executable_path=PATH)
 
 
 def get_run_data(date_cricket):
@@ -36,9 +35,6 @@ def get_run_data(date_cricket):
 
     finally:
         driver.close()
-
-
-
 
 
 def get_wicket_data(date_cricket):
@@ -86,29 +82,3 @@ def get_player_stats(Name):
 get_player_stats("\nRavindra jadeja")
 
 
-#/html/body/div/div/div[2]/div[1]/div/div/div[2]/header/div/div[2]/div/div[1]/div[1]/div[1]/div[2]/input    -Search for Players stats
-
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[1]/div/text()
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[1]/div/span
-
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[2]/div/text()
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[2]/div/span
-
-
-
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[2]/div[1]/div/text()
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[2]/div[1]/div/span
-
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[2]/div[2]/div/text()
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[2]/div[2]/div/span
-
-
-#for rows in range(1,5):
-            #for value in range(1,4):
-                #label=driver.find_by_xpath(f"/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[{(rows)}]/div[{(value)}]/div/text()")
-                #data=driver.find_by_xpath(f"/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[{(rows)}]/div[{(value)}]/div/span")
-                #print(label.text+data.text)
-
-
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[1]/div
-#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[2]/div
