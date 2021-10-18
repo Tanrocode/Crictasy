@@ -4,15 +4,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import date
-from sys import platform
 
-if platform == "darwin":
-  PATH = "/Users/rishit/Downloads/chromedriver"
 
-if platform == "win32":
-  PATH = "C:\Program Files (x86)\geckodriver.exe"
+PATH = "/Users/rishit/Downloads/chromedriver"
 
 driver = webdriver.Chrome(executable_path=PATH)
+
+
+
+
 
 
 def get_run_data(date_cricket):
@@ -38,6 +38,9 @@ def get_run_data(date_cricket):
         driver.close()
 
 
+
+
+
 def get_wicket_data(date_cricket):
     try:
         Label2=["Position","Player Name","Matches","Innings","Overs","Runs","Wickets","Best Bowling Innings","Average","Economy","Bowling Strike Rate","4 wickets","5 wickets"]
@@ -48,8 +51,6 @@ def get_wicket_data(date_cricket):
         choose_data = driver.find_element_by_class_name("drop-down__dropdown-list__option")
         todays_date = date.today()
         choose_data.find_element_by_xpath(f"/html/body/main/div[2]/div/div/div[2]/div[1]/ul/li[{(todays_date.year-date_cricket)+1}]").click()
-        elem = driver.find_elements_by_class_name("top-players__r  is-active")
-        print(elem)
 
         for i in range(2,52):
             for labels2 in range(1,14):
@@ -60,10 +61,54 @@ def get_wicket_data(date_cricket):
                     print(f"{(Label2[labels2-1])}:{(elem2.text)}")
     finally:
         driver.close()
-get_run_data(2021)
+    
+def get_player_stats(Name):
+    try:
+        NewName=""
+        for i in range(0,len(Name)):
+            if((Name[i])!=" "):
+                NewName=NewName+Name[i]
+            else:
+                NewName=NewName+"-"
+        print(Name)
+
+        driver.get(f"https://www.espncricinfo.com/ask/cricket-qna/{(NewName)}-IPL&tournament=allt20")
+
+        for rows in range(1,5):
+            for value in range(1,4):
+                Stats=driver.find_element_by_xpath(f"/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[{(rows)}]/div[{(value)}]/div")
+                print(Stats.text)
+        
+    finally:
+        driver.close()
+
+
+get_player_stats("\nRavindra jadeja")
+
+
+#/html/body/div/div/div[2]/div[1]/div/div/div[2]/header/div/div[2]/div/div[1]/div[1]/div[1]/div[2]/input    -Search for Players stats
+
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[1]/div/text()
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[1]/div/span
+
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[2]/div/text()
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[2]/div/span
 
 
 
-#/html/body/main/div[2]/div/div/div[3]/table/tbody/tr[2]/td[1]
-#/html/body/main/div[2]/div/div/div[3]/table/tbody/tr[2]/td[2]
-#/html/body/main/div[2]/div/div/div[3]/table/tbody/tr[2]/td[14]
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[2]/div[1]/div/text()
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[2]/div[1]/div/span
+
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[2]/div[2]/div/text()
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[2]/div[2]/div/span
+
+
+#for rows in range(1,5):
+            #for value in range(1,4):
+                #label=driver.find_by_xpath(f"/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[{(rows)}]/div[{(value)}]/div/text()")
+                #data=driver.find_by_xpath(f"/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[{(rows)}]/div[{(value)}]/div/span")
+                #print(label.text+data.text)
+
+
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[1]/div
+#/html/body/div/div/div[2]/div[2]/div/div/div/div/div[1]/main/div[1]/section/div[1]/div[2]/div[1]/div[1]/div[2]/div
