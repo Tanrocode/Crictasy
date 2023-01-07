@@ -1,9 +1,16 @@
-<h1> CRICBOT DOCUMENTATION </h1>
+# CRICTASY
 
-**Required Libraries** 
+*this project is archived and is not worked on anymore*
 
-- Express; Web Server framework, used for REST API building. INSTALL: npm install express
-- Discord.js; API provided by Discord and wrapped in Javascript, used for anything related to the client-side of our bot. INSTALL: npm install discord.js
-- Selenium; Multi-Purpose framework for testing and retrieving data in the browser, used for scraping information off websites. INSTALL: pip install selenium
-- Pymongo; Connector for Python and MongoDB, used for adding scraped data into our database. INSTALL: pip install pymongo
-express
+## Overview
+Crictasy is a fantasy app which scrapes data in real-time from the IPL website and uses it to display stats and allow teams to be drafted. 
+
+## File Structure
+
+FOLDERS: 
+
+__flutter_app__:
+Contains code to app front-end built on Flutter and Firebase
+
+__data__:
+Contains code to web scrape scripts and API to harness the data, built on Selenium (for scraping) and Express.js (for API)
